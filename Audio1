@@ -1,0 +1,26 @@
+setcpm(24.5)
+
+let drum = stack(
+  s("bd").beat("0,4,8,12",16),
+  s("cp").beat("4,12",16).gain(0.6),
+  s("hh").beat("0,2,4,6,8,10,12,14",16),
+  s("oh:1").beat("15",16),
+).bank("RolandTr909") 
+$drum: drum
+
+let harmony = chord("Am7 Fm7 Cm7 G7").voicing().s("gm_epiano1");
+$harmony: harmony
+
+let bass = note("a2 f2 c2 g2").sound("sawtooth").lpf(500).gain(0.9);
+$bass: bass
+
+//No me convence como quedó ;P
+let melody = note("f5 eb5 c5 ab4 d5 b4 g4 f4")
+  .sound("piano").legato(1.15);
+//$melody: melody
+
+let perc = stack(
+  s("rim").beat("2,6,10,14",16),
+  s("shaker*8"),
+).bank("RolandTr909")
+$perc: perc
